@@ -19,6 +19,21 @@ git clone https://github.com/clmntpllr/barman-web-app.git
 ```shell
 cd barman-web-app
 python -m pip install pip --upgrade
+```
+
+- Since flask-users is EOF (End Of Life), we need clone and install it on our environment.
+```
+git clone https://github.com/lingthio/Flask-User.git
+cd Flask-User/
+python -m pip install --upgrade build
+python -m build
+cd dist/
+python -m pip install Flask_User-1.0.2.3-py2.py3-none-any.whl 
+# back to main folder
+cd ../../
+```
+- Then install requirements
+```
 python -m pip install -r requirements.txt
 ```
 - config the app by editing config.py to suits your needs
