@@ -71,12 +71,6 @@ def create_app():
         tab_menu = get_servers_list()
         return render_template("index_template.html", tab_menu=tab_menu)
 
-    @app.route('/2')
-    @login_required
-    def home_page2():
-        tab_menu = get_servers_list()
-        return render_template("index_template2.html", tab_menu=tab_menu)
-
     @app.route('/refreshlist')
     @roles_required('SuperAdmin')
     def refresh_list():
