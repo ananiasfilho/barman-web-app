@@ -15,7 +15,15 @@
   </thead>
   <tbody>
     {% for backup in tablistbackup %}
-        {% if backup['status'] != "DONE" %}<tr class="table-danger">{% elif backup['backup_id'].startswith(datejour) %}<tr class="table-success">{% else %}<tr>{% endif %}
+        {% if backup['status'] == "STARTED" and backup['backup_id'].startswith(datejour) %}
+        	<tr class="table-warning">
+        {% elif backup['status'] == "DONE" and backup['backup_id'].startswith(datejour) %}
+        	<tr class="table-success">
+        {% elif backup['backup_id'].startswith(datejour) %}
+        	<tr class="table-danger">
+        {% else %}
+        	<tr>
+        {% endif %}
             <th scope="row">{{ backup['backup_id'] }}</th> 
             <td>{{ backup['end_time'] }}</td> 
             <td>{{ backup['status'] }}</td> 
